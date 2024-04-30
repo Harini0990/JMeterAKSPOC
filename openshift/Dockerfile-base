@@ -15,6 +15,12 @@ USER root
 # RUN useradd -d /jmeter/apache-jmeter-$JMETER_VERSION/ -ms /bin/bash -g root -p jboss jboss
 # USER jboss
 
+RUN yum -y update && \
+yum -y install \
+wget \
+telnet \
+iputils-ping \
+unzip
 
 RUN yum -y update && \
 yum -y install \
