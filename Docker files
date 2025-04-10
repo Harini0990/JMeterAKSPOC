@@ -5,7 +5,7 @@ First of all the jmeter base image needs to be created from the opend-jdk image,
 ============JMETER BASE DOCKER FILE============
 
 		FROM openjdk:8-jre-slim
-		MAINTAINER Kubernauts-lab
+		MAINTAINER Qualitest
 		
 		ARG JMETER_VERSION=4.0
 		
@@ -32,25 +32,25 @@ First of all the jmeter base image needs to be created from the opend-jdk image,
 
 ============Build, tag and push the base image============
 
-		docker build --tag="kubernautslabs/jmeter-base:latest" -f Dockerfile-base .
-		docker push kubernautslabs/jmeter-base:latest
+		docker build --tag="Qualitest/jmeter-base:latest" -f Dockerfile-base .
+		docker push Qualitest/jmeter-base:latest
     
 
 ============JMETER-MASTER DOCKER FILE============
 
-		FROM kubernautslabs/jmeter-base:latest
-		MAINTAINER Kubernauts-lab
+		FROM Qualitest/jmeter-base:latest
+		MAINTAINER Qualitest
 		
 		EXPOSE 60000
 
 ============Build, tag and push the master image============
 
-		docker build --tag="kubernautslabs/jmeter-master:latest" -f Dockerfile-master .
-		docker push kubernautslabs/jmeter-master:latest
+		docker build --tag="Qualitest/jmeter-master:latest" -f Dockerfile-master .
+		docker push Qualitest/jmeter-master:latest
 
 ================JMETER-SLAVES DOCKER FILE=====================
-		FROM kubernautslabs/jmeter-base
-		MAINTAINER Kubernauts-lab
+		FROM Qualitest/jmeter-base
+		MAINTAINER Qualitest
 		
 		EXPOSE 1099 50000
 		
@@ -62,10 +62,6 @@ First of all the jmeter base image needs to be created from the opend-jdk image,
 
 ============Build, tag and push the slave image:================
 
-		docker build --tag="kubernautslabs/jmeter-slave:latest" -f Dockerfile-slave .
-		docker push kubernautslabs/jmeter-slave:latest
+		docker build --tag="Qualitest/jmeter-slave:latest" -f Dockerfile-slave .
+		docker push Qualitest/jmeter-slave:latest
 
-================JMETER-REPORTER DOCKER FILE=====================
-
-		docker build --tag="kubernautslabs/jmeter-reporter" -f Dockerfile-reporter .
-		docker push kubernautslabs/jmeter-reporter
