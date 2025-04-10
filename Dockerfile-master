@@ -1,4 +1,4 @@
-FROM kubernautslabs/jmeter-base:latest
-MAINTAINER Kubernauts-lab
+FROM Qualitest/jmeter-base:latest
+MAINTAINER Qualitest
 		
 EXPOSE 60000
